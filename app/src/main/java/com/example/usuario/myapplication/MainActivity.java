@@ -5,20 +5,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import java.util.Date;
 
+
+
 public class MainActivity extends Activity implements View.OnClickListener {
-    Button boton;
-    TextView texto;
+    @BindView(R.id.button) Button boton;
+    @BindView(R.id.textView) TextView texto;
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
-
-            boton = (Button) findViewById(R.id.button);
-            texto = (TextView) findViewById(R.id.textView);
+            ButterKnife.bind(this);
             boton.setOnClickListener(this);
             Actualizar();
         }
